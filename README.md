@@ -2,11 +2,16 @@
 # hotFixDemo
 使用反射classLoader的原理实现热修复，这个例子修复的是activity
 
+
 修复原理：
+
 Android加载类时，BaseClassLoader会从头开始找加载要加载的class，使用反射修改BaseClassLoader里的DexPathList的Elements[]。
 可以利用DexClassLoader加载动态下载的.dex文件，而PathClassLoad加载的是安装的app的apk文件。
 
+
+
 修复步骤：
+
 1 利用分包设置，把问题Activity打包到classes2.dex
 
 2 把这个classes2.dex放到SDCard中，再拷贝到app私有目录下
